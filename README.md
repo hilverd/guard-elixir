@@ -8,19 +8,13 @@ Guard::Elixir is a [Guard](https://github.com/guard/guard) plugin that automatic
 ## Installation
 
 
-### Manual installation
-
-```bash
-gem install guard-elixir
-```
-
 ### Installation using [Bundler](http://gembundler.com/).
 
 Add Guard::Elixir to your `Gemfile`:
 
 ```ruby
 group :development do
-  gem 'guard-elixir'
+  gem 'guard-elixir', github: 'hilverd/guard-elixir'
 end
 ```
 

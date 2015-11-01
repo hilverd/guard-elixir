@@ -1,11 +1,8 @@
-require 'guard'
-require 'guard/guard'
-require 'guard/watcher'
-require 'guard/notifier'
+require 'guard/compat/plugin'
 
 module Guard
-  class Elixir < Guard
-    def initialize(watchers=[], options={})
+  class Elixir < Plugin
+    def initialize(options={})
       super
       @options = {
         all_on_start: true,
@@ -37,7 +34,7 @@ module Guard
         puts line
         if /Finished in ([0-9.]+) seconds/.match(line)
           duration = Regexp::last_match[1]
-        elsif /([0-9]+) tests, ([0-9]+) failures/.match(line)
+        elsif /([0-9]+) tests?, ([0-9]+) failures?/.match(line)
           total = Regexp::last_match[1].to_i
           failures = Regexp::last_match[2].to_i
         end
